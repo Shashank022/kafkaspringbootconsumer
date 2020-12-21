@@ -1,7 +1,6 @@
-package com.techprimers.kafka.springbootkafkaconsumerexample.config;
+package com.kafka.consumer.config;
 
-import com.techprimers.kafka.springbootkafkaconsumerexample.model.Person;
-import com.techprimers.kafka.springbootkafkaconsumerexample.model.User;
+import com.kafka.consumer.model.Person;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;

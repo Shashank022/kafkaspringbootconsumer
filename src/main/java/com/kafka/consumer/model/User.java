@@ -1,4 +1,4 @@
-package com.techprimers.kafka.springbootkafkaconsumerexample.model;
+package com.kafka.consumer.model;
 
 public class User {
 

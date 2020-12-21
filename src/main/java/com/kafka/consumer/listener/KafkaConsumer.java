@@ -1,7 +1,6 @@
-package com.techprimers.kafka.springbootkafkaconsumerexample.listener;
+package com.kafka.consumer.listener;
 
-import com.techprimers.kafka.springbootkafkaconsumerexample.model.Person;
-import com.techprimers.kafka.springbootkafkaconsumerexample.model.User;
+import com.kafka.consumer.model.Person;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.PartitionOffset;
 import org.springframework.kafka.annotation.TopicPartition;
