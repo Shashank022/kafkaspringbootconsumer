@@ -13,6 +13,7 @@ public class KafkaConsumer {
 
     private static final Logger LOGGER = LogManager.getLogger(KafkaConsumer.class);
 
+
     @Autowired
     PersonService personService;
 
@@ -27,7 +28,7 @@ public class KafkaConsumer {
         try{
             personService.savePersonsData(person);
         } catch (Exception e){
-            LOGGER.error("Exception occured on consuming the message");
+            LOGGER.error("Exception occurered on consuming the message");
         }
 
     }
