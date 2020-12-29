@@ -22,9 +22,13 @@ public class KafkaConsumer {
     }
 
 
-    // @KafkaListener(topics = "QPERSON", group = "group_json", containerFactory = "userKafkaListenerFactory")
     @KafkaListener(topics = "QPERSON", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
     public void consumeJson(Person person) {
-        personService.savePersonsData(person);
+        try{
+            personService.savePersonsData(person);
+        } catch (Exception e){
+            LOGGER.error("Exception occured on consuming the message");
+        }
+
     }
 }
