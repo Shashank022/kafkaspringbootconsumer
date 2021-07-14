@@ -37,11 +37,11 @@ public class PersonService {
             personDoc.addField("zipcode",data.getZipcode());
             solrClient.add(personDoc);
             solrClient.commit();
-            System.out.println("Successfully save the Solr doc...");
+            LOGGER.info("Successfully save the Solr doc...");
         }catch (Exception e){
-            LOGGER.info("Exception occurred at this..", e.getMessage());
+            LOGGER.error("Exception occurred at this..", e.getMessage());
         }
-        System.out.println("Consumed JSON Message: " + data);
+        LOGGER.info("Consumed JSON Message: " + data);
     }
 
 }

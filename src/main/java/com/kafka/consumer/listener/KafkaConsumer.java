@@ -13,6 +13,7 @@ public class KafkaConsumer {
 
     private static final Logger LOGGER = LogManager.getLogger(KafkaConsumer.class);
 
+
     @Autowired
     PersonService personService;
 
@@ -22,9 +23,13 @@ public class KafkaConsumer {
     }
 
 
-    // @KafkaListener(topics = "QPERSON", group = "group_json", containerFactory = "userKafkaListenerFactory")
     @KafkaListener(topics = "QPERSON", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
     public void consumeJson(Person person) {
-        personService.savePersonsData(person);
+        try{
+            personService.savePersonsData(person);
+        } catch (Exception e){
+            LOGGER.error("Exception occurered on consuming the message");
+        }
+
     }
 }
