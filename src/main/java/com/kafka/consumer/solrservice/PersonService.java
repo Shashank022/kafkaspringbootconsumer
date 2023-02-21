@@ -23,18 +23,19 @@ public class PersonService {
     @Autowired
     private SolrClient solrClient;
 
-    public void savePersonsData(Person data){
-        try{
-            SolrInputDocument personDoc = new SolrInputDocument();
+    public void savePersonsData(Person data) {
+        SolrInputDocument personDoc = null;
+        try {
+            personDoc = new SolrInputDocument();
             personDoc.addField("id", data.getId());
             personDoc.addField("firstname", data.getFirst_name());
-            personDoc.addField("lastname",data.getLast_name());
-            personDoc.addField("gender",data.getGender());
-            personDoc.addField("address",data.getAddress());
-            personDoc.addField("email",data.getEmail());
-            personDoc.addField("country",data.getCountry());
-            personDoc.addField("timezone",data.getTimezone());
-            personDoc.addField("zipcode",data.getZipcode());
+            personDoc.addField("lastname", data.getLast_name());
+            personDoc.addField("gender", data.getGender());
+            personDoc.addField("address", data.getAddress());
+            personDoc.addField("email", data.getEmail());
+            personDoc.addField("country", data.getCountry());
+            personDoc.addField("timezone", data.getTimezone());
+            personDoc.addField("zipcode", data.getZipcode());
             solrClient.add(personDoc);
             solrClient.commit();
             LOGGER.info("Successfully save the Solr doc...");

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +18,7 @@ public class KafkaConsumer {
     @Autowired
     PersonService personService;
 
-    @KafkaListener(topics = "Kafka_Example", groupId = "group_id")
+    @KafkaListener(groupId = "group_id", topicPartitions = @TopicPartition(topic = "Kafka_Example",partitions = "0"))
     public void consume(String message) {
         System.out.println("Consumed message: " + message);
     }
